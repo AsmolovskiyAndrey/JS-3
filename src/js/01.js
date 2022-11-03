@@ -39,13 +39,23 @@
 // private - вимагають ідентифікацію. Потрібен ключ доступу
 // public - пофіг на все. просто так з вами спілкуються.
 
-function getData(){
-    fetch('https://restcountries.com/v3.1/all')
-        .then(response => response.json())
-        .then(data => console.log(data))
+
+// function getData(){
+//     fetch('https://restcountries.com/v3.1/all')
+//         .then(response => response.json())
+//         .then(data => console.log(data))
     
-    fetch('https://rickandmortyapi.com/api/character')
-        .then(response => response.json())
-        .then(data => console.log(data))
+//     fetch('https://rickandmortyapi.com/api/character')
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+// }
+// getData()
+
+//todo ´´´´´´´´´´´´´´´´´ Репета практика ==============================
+function getPok() {
+    fetch('https://pokeapi.co/api/v2/pokemon')
+        .then(responce => responce.json())
+    .then(data => console.log(data))
 }
-getData()
+
+getPok()
