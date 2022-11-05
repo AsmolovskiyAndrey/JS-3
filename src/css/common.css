@@ -30,3 +30,45 @@ li{
     font-size: 16px;
     font-weight: 400;
 }
+
+/* 2-урок */
+
+.itemList {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  background-color: #949393;
+  padding: 5px;
+  list-style-type: none;
+  border: 1px solid black;
+  margin: 5px;
+  width: 17%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.item img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+button {
+  margin: 25px auto;
+  display: block;
+
+}

@@ -52,10 +52,78 @@
 // getData()
 
 //todo ´´´´´´´´´´´´´´´´´ Репета практика ==============================
-function getPok() {
-    fetch('https://pokeapi.co/api/v2/pokemon')
-        .then(responce => responce.json())
-    .then(data => console.log(data))
+// function getPok() {
+//     fetch('https://pokeapi.co/api/v2/pokemon')
+//         .then(responce => responce.json())
+//     .then(data => console.log(data))
+// }
+
+// getPok()
+
+//! ===================== "2-й урок" ==========================================
+
+let getEl = selector => document.querySelector(selector)
+let pageCounter = 1
+function getData(){
+    fetch(`https://rickandmortyapi.com/api/character?page=${pageCounter}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('Я завантажив сторінку номер - ', pageCounter)
+            const markup = data.results.map(({image,id, name, status, species, gender, location, created}) => {
+              return `
+            <li class="item">
+                <img src=${image} alt="">
+                <p class="id">ID: ${id}</p>
+                <p class="name">NAME: ${name}</p>
+                <p class="status">STATUS: ${status}</p>
+                <p class="species">SPECIES: ${species}</p>
+                <p class="gender">GENDER: ${gender}</p>
+                <p class="location">LOCATION: ${location.name}</p>
+                <p class="createdAt">Created At: ${created}</p>
+        </li>
+            `
+            }).join('')
+            getEl('.itemList').insertAdjacentHTML('beforeend', markup)
+            pageCounter++
+        })
 }
 
-getPok()
+getEl('.load_btn').addEventListener('click', getData)
+
+window.addEventListener('scroll', () =>{
+    const {scrollHeight, scrollTop, clientHeight} = document.documentElement
+    // console.log(scrollTop) // Висота від верху документа в пх
+    // console.log(scrollHeight) // Довжина всього документа
+    // console.log(clientHeight) // Висота вьюпорта користувача
+    if(scrollTop === scrollHeight - clientHeight){
+        console.log('ЗАГРУЗКА')
+        getData()
+    }
+})
+
+const promise = new Promise((resolve, reject)=>{
+    let number = Math.random() > .5
+setTimeout(()=>{
+    if(number){
+        resolve('123123123')
+    }else{
+        reject('ERROR 5 LETTER WORD')
+    }
+},5000)
+}).then(data => console.log(data))
+    .catch(error => console.log(error))
+
+function test(){
+    fetch('https://restcountries.com/v3.1/all')
+        .then(response => {
+            console.log('Я ВИКОНАВСЯ ->', response)
+            if(!response.ok){
+                throw new Error(response.statusText)
+            }
+            return response
+        })
+        .then(data => data.json())
+        .then(data=> console.log('Я ВИКОНАВСЯ ->', data))
+        .catch(error => console.log('Я НЕ ВИКОНАВСЯ ->', error))
+}
+test()
