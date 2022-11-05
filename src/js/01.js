@@ -70,7 +70,7 @@ function getData(){
         .then(data => {
             console.log('Я завантажив сторінку номер - ', pageCounter)
             const markup = data.results.map(({image,id, name, status, species, gender, location, created}) => {
-              return `
+                return `
             <li class="item">
                 <img src=${image} alt="">
                 <p class="id">ID: ${id}</p>
