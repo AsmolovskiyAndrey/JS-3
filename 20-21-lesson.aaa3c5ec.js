@@ -1,4 +1,4 @@
 //! =================================== CRUD ==========================================================
+JSON.stringify({title:"Самоучитель по CSS",raiting:9.9,author:"Я"});
 //! ===================================================== Асинхронные функции ===========================================================
-(async()=>{const o=[1,2,3].map((async o=>(await fetch(`https://jsonplaceholder.typicode.com/users/${o}`)).json())),s=await Promise.all(o);console.log(s)})();
-//# sourceMappingURL=20-21-lesson.c7d5061a.js.map
+//# sourceMappingURL=20-21-lesson.aaa3c5ec.js.map
