@@ -99,7 +99,11 @@
 //     .then(() => console.log("Post deleted"))
 //     .catch(error => console.log("Error:", error));
 
-//? ========================================== Практика м Репетой на своём сервере ======================================================
+
+
+//? ========================================== Практика c Репетой на своём сервере ======================================================
+
+
 
 //todo READ ==============================================
 // const BASE_URL = 'http://localhost:3000/books/'
@@ -119,31 +123,77 @@
 // fetchBook()
 // fetchBookById(2)
 
-//todo CREATE =============================================
+//todo CREATE (POST) =============================================
 
-const BASE_URL = 'http://localhost:3000/books/'
+// const BASE_URL = 'http://localhost:4567/books/'
 
-const newBook = {
-  title: "Самоучитель по CSS",
-  raiting: 9.9,
-  author: "Я",
-};
-    
-const options = {
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(newBook),
-};
+// const newBook = {
+//   title: "Самоучитель по CSS",
+//   raiting: 9.9,
+//   author: "Я",
+// };
+// const newBook2 = {
+//   title: "Самоучитель по HTML",
+//   raiting: 9.7,
+//   author: "Я",
+// };
 
-function CreateBook() {
-    return fetch(BASE_URL, options)
-    .then(response => response.json())
-    .then(post => console.log(post))
+// function CreateBook(book) {
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(book),
+// };
+
+//   return fetch(BASE_URL, options)
+//     .then(response => response.json())
+// }
+
+// CreateBook(newBook).then(book => {
+//   console.log(book);
+// })
+// CreateBook(newBook2).then(book => {
+//   console.log(book);
+// })
+
+//todo ============================ // Методы PUT и PATCH ============================================
+
+const BASE_URL = 'http://localhost:4567/books/'
+
+function updateBookById(update, id) {
+  const options = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(update),
+  };
+
+  return fetch(`${BASE_URL}${id}`, options).then(res => res.json());
 }
 
-// CreateBook()
+updateBookById({ title: 'Мастер и Маргарита', author: 'Михаил Булгаков' }, 13).then(book => {console.log(book)}).catch(error => console.log(error))
+updateBookById({author: 'Александр Пушкин'}, 12).then(book => {console.log(book)}).catch(error => console.log(error))
+updateBookById({ title: 'Книга неизвестного писателя' }, 11).then(book => { console.log(book) }).catch(error => console.log(error))
+
+
+//todo ============================================ Метод DELETE ==============================================
+
+// const BASE_URL = 'http://localhost:4567/books/'
+
+// function deleteBook(id) {
+//   const options = {
+//     method: "DELETE",
+//   };
+
+//   return fetch(`${BASE_URL}${id}`, options).then(resolve => resolve.json())
+// }
+
+// deleteBook(3)
+
+
 //! ===================================================== Асинхронные функции ===========================================================
 
 // Асинхронные функции помогают избавиться от коллбэков и вложенных конструкций.При этом они отлично работают в связке с методами then() и catch (),
