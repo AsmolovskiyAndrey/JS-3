@@ -99,7 +99,51 @@
 //     .then(() => console.log("Post deleted"))
 //     .catch(error => console.log("Error:", error));
 
+//? ========================================== Практика м Репетой на своём сервере ======================================================
 
+//todo READ ==============================================
+// const BASE_URL = 'http://localhost:3000/books/'
+
+// function fetchBook() { //* ВЕРНЁТ ВСЕ КНИГИ В КОЛЛЕКЦИИ
+//   fetch(BASE_URL)
+//   .then(responce => responce.json())
+//   .then(data => console.log(data))
+// }
+
+// function fetchBookById(id) { //* ВЕРНЁТ КНИГУ ПО ЕЁ ID
+//   fetch(`${BASE_URL}${id}`)
+//   .then(responce => responce.json())
+//   .then(data => console.log(data))
+// }
+
+// fetchBook()
+// fetchBookById(2)
+
+//todo CREATE =============================================
+
+const BASE_URL = 'http://localhost:3000/books/'
+
+const newBook = {
+  title: "Самоучитель по CSS",
+  raiting: 9.9,
+  author: "Я",
+};
+    
+const options = {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(newBook),
+};
+
+function CreateBook() {
+    return fetch(BASE_URL, options)
+    .then(response => response.json())
+    .then(post => console.log(post))
+}
+
+// CreateBook()
 //! ===================================================== Асинхронные функции ===========================================================
 
 // Асинхронные функции помогают избавиться от коллбэков и вложенных конструкций.При этом они отлично работают в связке с методами then() и catch (),
@@ -260,22 +304,22 @@
 // В нашем случае они полностью независимы, поэтому нужно запустить их параллельно.Для этого создаётся массив промисов, после чего используется метод Promise.all(),
 // для ожидания их выполнения.Массив промисов создается методами map(), filter() и так далее, зависит от задачи.
 
-const fetchUsers = async () => {
-  const baseUrl = "https://jsonplaceholder.typicode.com";
-  const userIds = [1, 2, 3];
+// const fetchUsers = async () => {
+//   const baseUrl = "https://jsonplaceholder.typicode.com";
+//   const userIds = [1, 2, 3];
 
-  // 1. Создаём массив промисов
-  const arrayOfPromises = userIds.map(async userId => {
-    const response = await fetch(`${baseUrl}/users/${userId}`);
-    return response.json();
-  });
+//   // 1. Создаём массив промисов
+//   const arrayOfPromises = userIds.map(async userId => {
+//     const response = await fetch(`${baseUrl}/users/${userId}`);
+//     return response.json();
+//   });
 
-  // 2. Запускаем все промисы параллельно и ждем их завершения
-  const users = await Promise.all(arrayOfPromises);
-    console.log(users);
-};
+//   // 2. Запускаем все промисы параллельно и ждем их завершения
+//   const users = await Promise.all(arrayOfPromises);
+//     console.log(users);
+// };
 
-fetchUsers();
+// fetchUsers();
 
 // При таком подходе запросы запускаются параллельно, что экономит время ожидания их выполнения, которое равно длительности самого «медленного» из них.
 // Такой приём подходит только если запросы не зависят друг от друга.
