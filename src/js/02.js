@@ -160,23 +160,23 @@
 
 //todo ============================ // Методы PUT и PATCH ============================================
 
-const BASE_URL = 'http://localhost:4567/books/'
+// const BASE_URL = 'http://localhost:4567/books/'
 
-function updateBookById(update, id) {
-  const options = {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(update),
-  };
+// function updateBookById(update, id) {
+//   const options = {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(update),
+//   };
 
-  return fetch(`${BASE_URL}${id}`, options).then(res => res.json());
-}
+//   return fetch(`${BASE_URL}${id}`, options).then(res => res.json());
+// }
 
-updateBookById({ title: 'Мастер и Маргарита', author: 'Михаил Булгаков' }, 13).then(book => {console.log(book)}).catch(error => console.log(error))
-updateBookById({author: 'Александр Пушкин'}, 12).then(book => {console.log(book)}).catch(error => console.log(error))
-updateBookById({ title: 'Книга неизвестного писателя' }, 11).then(book => { console.log(book) }).catch(error => console.log(error))
+// updateBookById({ title: 'Мастер и Маргарита', author: 'Михаил Булгаков' }, 13).then(book => {console.log(book)}).catch(error => console.log(error))
+// updateBookById({author: 'Александр Пушкин'}, 12).then(book => {console.log(book)}).catch(error => console.log(error))
+// updateBookById({ title: 'Книга неизвестного писателя' }, 11).then(book => { console.log(book) }).catch(error => console.log(error))
 
 
 //todo ============================================ Метод DELETE ==============================================
