@@ -193,6 +193,120 @@
 
 // deleteBook(3)
 
+//? ============================================== from lesson Bogdan ================================================
+
+// ----> План Уроку
+// CRUD - Create, Read, Update, Delete
+
+// let getEl = x => document.querySelector(x)
+// getEl('form').addEventListener('submit', submitData)
+// let user = ''
+// function submitData(event){
+//     event.preventDefault()
+//     const name = getEl('.name').value
+//     const surname = getEl('.surname').value
+//     const mail = getEl('.mail').value
+//     const password = getEl('.password').value
+//     user = {
+//         name,
+//         mail,
+//         surname,
+//         password,
+//     }
+//     console.log(user)
+//     addUSER(user)
+// }
+//
+//
+// const POST = data => ({
+//     method: 'POST',
+//         body: JSON.stringify(data),
+//         headers: {
+//         "Content-Type": "application/json; charset=UTF-8"
+//     }
+// })
+//
+// const DELETE = {
+//     method: "DELETE"
+// }
+//
+// function addUSER(data){
+//     fetch('http://localhost:3000/data ', POST(data))
+//         .then(response => response.json())
+//         .then(data => console.log('USER ADDED ✅'))
+// }
+
+// function deleteUSER(){
+//     fetch('http://localhost:3000/data/3', DELETE)
+//         .then(response => {
+//             if(!response.ok){
+//                 throw new Error('USER NOT FOUND')
+//             }
+//             return response.json()
+//         })
+//         .then(data => console.log('USER WAS REMOVED ✅'))
+//         .catch(error => console.log('USER WAS NOT FOUND ⛔️'))
+// }
+// deleteUSER()
+
+// ORIGINAL
+// {
+//     "name": "Petro",
+//     "mail": "sweetboy@gmail.com",
+//     "surname": "Poroshenko",
+//     "password": "123",
+//     "id": 2
+// }
+// PATCH - {
+//  "surname": "Zelensky"
+// }
+// {
+//     "name": "Petro",
+//     "mail": "sweetboy@gmail.com",
+//     "surname": "Zelensky",
+//     "password": "123",
+//     "id": 2
+// }
+// PUT - {
+//  "surname": "Zelensky"
+// }
+// {
+//     "surname": "Zelensky",
+//     "id": 2
+// }
+
+// const userPATCH = {
+//     "surname": "Zelensky",
+// }
+//
+// const PATCH = data => ({
+//     method: 'PATCH',
+//     body: JSON.stringify(data),
+//     headers: {
+//         "Content-Type": "application/json; charset=UTF-8"
+//     }
+// })
+// const PUT = data => ({
+//     method: 'PUT',
+//     body: JSON.stringify(data),
+//     headers: {
+//         "Content-Type": "application/json; charset=UTF-8"
+//     }
+// })
+//
+// // function patchData(){
+// //     fetch('http://localhost:3000/data/2', PATCH(userPATCH))
+// //         .then(response => response.json())
+// //         .then(data => console.log('USER WAS PATCHED SUCCESFULL ✔️'))
+// // }
+// // patchData()
+// function putData(){
+//     fetch('http://localhost:3000/data/2', PUT(userPATCH))
+//         .then(response => response.json())
+//         .then(data => console.log('USER WAS PUT SUCCESFULL ✔️'))
+// }
+// putData()
+//?=========================================================================================================
 
 //! ===================================================== Асинхронные функции ===========================================================
 
