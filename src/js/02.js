@@ -337,7 +337,6 @@
 //     const users = await response.json();
 //     return users;
 // };
-
 // fetchUsers().then(users => console.log(users));
 
 // Когда интерпретатор встречает await, он приостановливает выполнение этой функции(не всего скрипта) и ждет, пока не выполнится промис справа от await.
